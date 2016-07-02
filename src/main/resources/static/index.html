@@ -10,9 +10,7 @@
 <!-- Import the shopping cart service with UI -->
 <link rel="import" href="http://localhost:8082/components/shopping-cart.html">
 
-<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
-
-<style is="custom-style" include="iron-flex"></style>
+<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 </head>
 
@@ -25,14 +23,26 @@
   <dom-module id="main-page">
   
     <template>
-      <div class="horizontal layout" style="height:100%">
-        <div class="flex-4">
+	<style include="iron-flex iron-flex-alignment">
+   	.container {
+      @apply(--layout-horizontal);
+    }
+    .flex4 {
+      @apply(--layout-flex-4);
+    }
+    .flex2 {
+      @apply(--layout-flex-2);
+    }
+    
+    </style>
+      <div class="container">
+        <div class="flex4">
 			<product-create-form></product-create-form>
 			<hr>
 			<product-list></product-list>        
 		</div>
-        <div class="flex-2">
-        	<shopping-cart></shopping-cart>
+        <div class="flex2">
+			<shopping-cart></shopping-cart>
         </div>
       </div>
     </template>
